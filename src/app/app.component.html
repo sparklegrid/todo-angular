@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center" class="text-center">
+
+  <div class="card" style="width: 50%;">
+    <div class="card-header">
+      <h1>{{ title }}!</h1>
+    </div>
+    <div class="card-body">
+      <h2>Create Todo</h2>
+      <form class="form-horizontal" ngForm="todoForm" (submit)="addTodo()">
+        <div class="form-group">
+          <label for="title">
+            Title</label>
+          <input name="title" id="title" type="text" [(ngModel)]="todo.title"/>
+        </div>
+        <br>
+        <div class="form-group">
+          <label>
+            Description
+            <textarea id="desc" name="desc" [(ngModel)]="todo.desc"></textarea>
+          </label>
+        </div>
+        <br>
+        <button class="btn btn-outline-success" type="submit">Submit</button>
+      </form>
+
+      <br>
+      <br>
+
+      <h2>Todo List</h2>
+      <ul>
+        <li *ngFor="let todo of todos">
+          <h2><a target="_self" rel="noopener" href="">{{todo.title}}</a></h2>
+          <p>{{todo.desc}}</p>
+          <button (click)="deleteTodo(todo.id)">Delete</button>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
